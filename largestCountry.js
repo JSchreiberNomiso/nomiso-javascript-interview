@@ -26,33 +26,7 @@
 // ];
 
 const largestCountry = (countries, cities, populations) => {
-  let highestPop = 0;
-  let highestIndex = 0;
-
-  countries.forEach((country, index) => {
-    const countryPop = cities.reduce((cityMemo, city) => {
-      const cityPop = populations.reduce((popMemo, pop) => {
-        if (pop.city_id === city.id) {
-          return popMemo + pop.amount;
-        }
-
-        return popMemo;
-      }, 0);
-
-      if (city.country_id == country.id) {
-        return cityMemo + cityPop;
-      }
-
-      return cityMemo;
-    }, 0);
-
-    if (highestPop < countryPop) {
-      highestPop = countryPop;
-      highestIndex = index;
-    }
-  });
-
-  return { ...countries[highestIndex], population: highestPop };
+  return { name: 'ToBeDecided', population: 0 };
 };
 
 module.exports = largestCountry;
