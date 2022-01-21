@@ -1,33 +1,33 @@
-const assert = require('assert');
-const largestCountry = require('../largestCountry');
+const assert = require("assert");
+const largestCountry = require("../largestCountry");
 
 const countries = [
-  { id: 4, name: 'New Zealand' },
-  { id: 1, name: 'USA' },
-  { id: 2, name: 'England' },
-  { id: 3, name: 'Russia' },
-  { id: 5, name: 'Japan' },
-  { id: 6, name: 'India' },
+  { id: 4, name: "New Zealand" },
+  { id: 1, name: "USA" },
+  { id: 2, name: "England" },
+  { id: 3, name: "Russia" },
+  { id: 5, name: "Japan" },
+  { id: 6, name: "India" },
 ];
 
 const cities = [
-  { id: 3, country_id: 1, name: 'Los Angeles' },
-  { id: 8, country_id: 3, name: 'Moscow' },
-  { id: 2, country_id: 1, name: 'Seattle' },
-  { id: 11, country_id: 4, name: 'Wellington' },
-  { id: 5, country_id: 1, name: 'San Diego' },
-  { id: 7, country_id: 2, name: 'Manchester' },
-  { id: 9, country_id: 3, name: 'Novosibirsk' },
-  { id: 1, country_id: 1, name: 'New York' },
-  { id: 6, country_id: 2, name: 'London' },
-  { id: 10, country_id: 4, name: 'Auckland' },
-  { id: 4, country_id: 1, name: 'Houston' },
-  { id: 12, country_id: 5, name: 'Tokyo' },
-  { id: 13, country_id: 5, name: 'Yokohama' },
-  { id: 14, country_id: 5, name: 'Osaka' },
-  { id: 15, country_id: 6, name: 'Mumbai' },
-  { id: 16, country_id: 6, name: 'Delhi' },
-  { id: 17, country_id: 100, name: 'Wonderland' },
+  { id: 3, country_id: 1, name: "Los Angeles" },
+  { id: 8, country_id: 3, name: "Moscow" },
+  { id: 2, country_id: 1, name: "Seattle" },
+  { id: 11, country_id: 4, name: "Wellington" },
+  { id: 5, country_id: 1, name: "San Diego" },
+  { id: 7, country_id: 2, name: "Manchester" },
+  { id: 9, country_id: 3, name: "Novosibirsk" },
+  { id: 1, country_id: 1, name: "New York" },
+  { id: 6, country_id: 2, name: "London" },
+  { id: 10, country_id: 4, name: "Auckland" },
+  { id: 4, country_id: 1, name: "Houston" },
+  { id: 12, country_id: 5, name: "Tokyo" },
+  { id: 13, country_id: 5, name: "Yokohama" },
+  { id: 14, country_id: 5, name: "Osaka" },
+  { id: 15, country_id: 6, name: "Mumbai" },
+  { id: 16, country_id: 6, name: "Delhi" },
+  { id: 17, country_id: 100, name: "Wonderland" },
 ];
 
 const populations = [
@@ -49,21 +49,31 @@ const populations = [
   { id: 16, city_id: 16, amount: 11007835 },
 ];
 
-it('should not error', () => {
+const isEqual = (actual, expected) => {
+  assert.strictEqual(
+    actual,
+    expected,
+    new Error(
+      `${JSON.stringify(actual)} is not equal to ${JSON.stringify(expected)}`
+    )
+  );
+};
+
+it("should not error", () => {
   largestCountry(countries, cities, populations);
 });
 
-it('should have correct name given 3 countries', () => {
+it("should have correct name given 3 countries", () => {
   const country = largestCountry(countries.slice(0, 3), cities, populations);
-  assert.equal(country.name, 'USA');
+  isEqual(country.name, "USA");
 });
 
-it('should have correct name given all countries', () => {
+it("should have correct name given all countries", () => {
   const country = largestCountry(countries, cities, populations);
-  assert.equal(country.name, 'India');
+  isEqual(country.name, "India");
 });
 
-it('should have correct name given all countries with different populations', () => {
+it("should have correct name given all countries with different populations", () => {
   const modifiedPopulations = populations.map((pop) => {
     if (pop.city_id === 11) {
       pop.amount = 1000000000;
@@ -72,20 +82,20 @@ it('should have correct name given all countries with different populations', ()
     return pop;
   });
   const country = largestCountry(countries, cities, modifiedPopulations);
-  assert.equal(country.name, 'New Zealand');
+  isEqual(country.name, "New Zealand");
 });
 
-it('should have correct population given 3 countries', () => {
+it("should have correct population given 3 countries", () => {
   const country = largestCountry(countries.slice(0, 3), cities, populations);
-  assert.equal(country.population, 16830305);
+  isEqual(country.population, 16830305);
 });
 
-it('should have correct population given all countries', () => {
+it("should have correct population given all countries", () => {
   const country = largestCountry(countries, cities, populations);
-  assert.equal(country.population, 23450208);
+  isEqual(country.population, 23450208);
 });
 
-it('should have correct population given all countries with different populations', () => {
+it("should have correct population given all countries with different populations", () => {
   const modifiedPopulations = populations.map((pop) => {
     if (pop.city_id === 11) {
       pop.amount = 1000000000;
@@ -94,5 +104,5 @@ it('should have correct population given all countries with different population
     return pop;
   });
   const country = largestCountry(countries, cities, modifiedPopulations);
-  assert.equal(country.population, 1001657000);
+  isEqual(country.population, 1001657000);
 });
