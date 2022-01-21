@@ -1,4 +1,4 @@
-const assert = require("assert");
+const { it, equal } = require("../testSuite/suite");
 const largestCountry = require("../largestCountry");
 
 const countries = [
@@ -49,32 +49,23 @@ const populations = [
   { id: 16, city_id: 16, amount: 11007835 },
 ];
 
-const isEqual = (actual, expected) => {
-  assert.strictEqual(
-    actual,
-    expected,
-    new Error(
-      `${JSON.stringify(actual)} is not equal to ${JSON.stringify(expected)}`
-    )
-  );
-};
-
 it("should not error", () => {
   largestCountry(countries, cities, populations);
 });
 
 it("should have correct name given 3 countries", () => {
   const country = largestCountry(countries.slice(0, 3), cities, populations);
-  isEqual(country.name, "USA");
+  equal(country.name, "USA");
 });
 
 it("should have correct name given all countries", () => {
   const country = largestCountry(countries, cities, populations);
-  isEqual(country.name, "India");
+  equal(country.name, "India");
 });
 
-it("should have correct name given all countries with different populations", () => {
-  const modifiedPopulations = populations.map((pop) => {
+it("should have correct name given all countries with modified populations", () => {
+  const modifiedPopulations = populations.map((population) => {
+    const pop = { ...population };
     if (pop.city_id === 11) {
       pop.amount = 1000000000;
     }
@@ -82,21 +73,22 @@ it("should have correct name given all countries with different populations", ()
     return pop;
   });
   const country = largestCountry(countries, cities, modifiedPopulations);
-  isEqual(country.name, "New Zealand");
+  equal(country.name, "New Zealand");
 });
 
-it("should have correct population given 3 countries", () => {
+it("should have correct largest population given 3 countries", () => {
   const country = largestCountry(countries.slice(0, 3), cities, populations);
-  isEqual(country.population, 16830305);
+  equal(country.population, 16830305);
 });
 
-it("should have correct population given all countries", () => {
+it("should have correct largest population given all countries", () => {
   const country = largestCountry(countries, cities, populations);
-  isEqual(country.population, 23450208);
+  equal(country.population, 23450208);
 });
 
-it("should have correct population given all countries with different populations", () => {
-  const modifiedPopulations = populations.map((pop) => {
+it("should have correct largest population given all countries with modified populations", () => {
+  const modifiedPopulations = populations.map((population) => {
+    const pop = { ...population };
     if (pop.city_id === 11) {
       pop.amount = 1000000000;
     }
@@ -104,5 +96,5 @@ it("should have correct population given all countries with different population
     return pop;
   });
   const country = largestCountry(countries, cities, modifiedPopulations);
-  isEqual(country.population, 1001657000);
+  equal(country.population, 1001657000);
 });
