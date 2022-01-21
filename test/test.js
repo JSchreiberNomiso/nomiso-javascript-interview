@@ -54,13 +54,13 @@ it('should not error', () => {
 });
 
 it('should have correct name given 3 countries', () => {
-  const largestCountry = largestCountry(countries.slice(0, 3), cities, populations);
-  assert.equal(largestCountry.name, 'USA');
+  const country = largestCountry(countries.slice(0, 3), cities, populations);
+  assert.equal(country.name, 'USA');
 });
 
 it('should have correct name given all countries', () => {
-  const largestCountry = largestCountry(countries, cities, populations);
-  assert.equal(largestCountry.name, 'India');
+  const country = largestCountry(countries, cities, populations);
+  assert.equal(country.name, 'India');
 });
 
 it('should have correct name given all countries with different populations', () => {
@@ -71,18 +71,18 @@ it('should have correct name given all countries with different populations', ()
 
     return pop;
   });
-  const largestCountry = largestCountry(countries, cities, modifiedPopulations);
-  assert.equal(largestCountry.name, 'New Zealand');
+  const country = largestCountry(countries, cities, modifiedPopulations);
+  assert.equal(country.name, 'New Zealand');
 });
 
 it('should have correct population given 3 countries', () => {
-  const largestCountry = largestCountry(countries.slice(0, 3), cities, populations);
-  assert.equal(largestCountry.population, 16830305);
+  const country = largestCountry(countries.slice(0, 3), cities, populations);
+  assert.equal(country.population, 16830305);
 });
 
 it('should have correct population given all countries', () => {
-  const largestCountry = largestCountry(countries, cities, populations);
-  assert.equal(largestCountry.population, 23450208);
+  const country = largestCountry(countries, cities, populations);
+  assert.equal(country.population, 23450208);
 });
 
 it('should have correct population given all countries with different populations', () => {
@@ -93,6 +93,6 @@ it('should have correct population given all countries with different population
 
     return pop;
   });
-  const largestCountry = largestCountry(countries, cities, modifiedPopulations);
-  assert.equal(largestCountry.population, 1001657000);
+  const country = largestCountry(countries, cities, modifiedPopulations);
+  assert.equal(country.population, 1001657000);
 });
