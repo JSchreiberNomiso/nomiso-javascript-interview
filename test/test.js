@@ -10,6 +10,8 @@ const countries = [
   { id: 6, name: "India" },
 ];
 
+const originalCountries = countries.map(country => ({ ...country }));
+
 const cities = [
   { id: 3, country_id: 1, name: "Los Angeles" },
   { id: 8, country_id: 3, name: "Moscow" },
@@ -51,6 +53,14 @@ const populations = [
 
 it("should not error", () => {
   largestCountry(countries, cities, populations);
+});
+
+it('should not have side effects', () => {
+  originalCountries.forEach((country, i) => {
+    equal(Object.keys(country).length, Object.keys(countries[i]).length);
+    equal(country.name, countries[i].name);
+    equal(country.id, countries[i].id);
+  });
 });
 
 it("should have correct name given 3 countries", () => {
