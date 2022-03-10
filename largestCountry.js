@@ -4,7 +4,6 @@
 // The output of largestCountry should be an object with a
 // key 'name' representing the country name and a key 'population'
 // representing the countries total population
-// Example Output: { name: 'Australia', population: 2000000 }
 
 // Example Input Data:
 // const countries = [
@@ -19,10 +18,12 @@
 // ];
 
 // const populations = [
-//   { id: 3, city_id: 3, amount: 3967000 },
+//   { id: 3, city_id: 3, amount: 3960000 },
 //   { id: 8, city_id: 8, amount: 11920000 },
-//   { id: 2, city_id: 2, amount: 724305 },
+//   { id: 2, city_id: 2, amount: 8240000 },
 // ];
+
+// Example Output: { name: 'USA', population: 12200000 }
 
 const largestCountry = (countries, cities, populations) => {
   return { name: 'ToBeDecided', population: 0 };
