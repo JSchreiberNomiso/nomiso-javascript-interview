@@ -1,5 +1,5 @@
-// Find the country with the largest population by
-// combining the given data on foreign keys
+// Find the country with the largest combined population by
+// joining the given data on foreign keys
 
 // The output of largestCountry should be an object with a
 // key 'name' representing the country name and a key 'population'
