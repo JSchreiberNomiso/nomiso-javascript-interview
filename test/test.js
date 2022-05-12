@@ -33,22 +33,22 @@ const cities = [
 ];
 
 const populations = [
-  { id: 2, city_id: 2, amount: 724305 },
-  { id: 4, city_id: 4, amount: 2310000 },
-  { id: 6, city_id: 6, amount: 8982000 },
-  { id: 3, city_id: 3, amount: 3967000 },
-  { id: 1, city_id: 1, amount: 8419000 },
-  { id: 5, city_id: 5, amount: 1410000 },
-  { id: 8, city_id: 8, amount: 11920000 },
-  { id: 7, city_id: 7, amount: 553230 },
-  { id: 11, city_id: 11, amount: 212700 },
-  { id: 12, city_id: 12, amount: 8336600 },
-  { id: 13, city_id: 13, amount: 3574400 },
-  { id: 9, city_id: 9, amount: 1511000 },
-  { id: 10, city_id: 10, amount: 1657000 },
-  { id: 14, city_id: 14, amount: 2592413 },
-  { id: 15, city_id: 15, amount: 12442373 },
-  { id: 16, city_id: 16, amount: 11007835 },
+  { id: 16, city_id: 14, amount: 2592413 },
+  { id: 6, city_id: 5, amount: 1410000 },
+  { id: 1, city_id: 2, amount: 724305 },
+  { id: 11, city_id: 13, amount: 3574400 },
+  { id: 2, city_id: 4, amount: 2310000 },
+  { id: 4, city_id: 3, amount: 3967000 },
+  { id: 7, city_id: 8, amount: 11920000 },
+  { id: 8, city_id: 7, amount: 553230 },
+  { id: 15, city_id: 16, amount: 11007835 },
+  { id: 13, city_id: 10, amount: 1657000 },
+  { id: 9, city_id: 11, amount: 212700 },
+  { id: 3, city_id: 6, amount: 8982000 },
+  { id: 10, city_id: 12, amount: 8336600 },
+  { id: 14, city_id: 15, amount: 12442373 },
+  { id: 5, city_id: 1, amount: 8419000 },
+  { id: 12, city_id: 9, amount: 1511000 },
 ];
 
 it("should not error", () => {

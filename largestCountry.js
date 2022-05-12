@@ -18,9 +18,9 @@
 // ];
 
 // const populations = [
-//   { id: 3, city_id: 3, amount: 3960000 },
-//   { id: 8, city_id: 8, amount: 11920000 },
-//   { id: 2, city_id: 2, amount: 8240000 },
+//   { id: 1, city_id: 3, amount: 3960000 },
+//   { id: 2, city_id: 8, amount: 11920000 },
+//   { id: 3, city_id: 2, amount: 8240000 },
 // ];
 
 // Example Output: { name: 'USA', population: 12200000 }
